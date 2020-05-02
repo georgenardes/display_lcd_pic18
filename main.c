@@ -15,8 +15,8 @@ t_display_port *lcd;
 void main(void) {
     ADCON1 = 0x0F;
     TRISD = 0x0;
-    
-    init_lcd(lcd, &PORTD);
+        
+    lcd = &PORTD;
             
     function_set(lcd, 0, 0, 0);
     display_onoff_control(lcd, 1, 1, 0);

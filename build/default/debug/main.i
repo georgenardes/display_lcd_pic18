@@ -1,4 +1,4 @@
-# 1 "lcd_hd_44780.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "lcd_hd_44780.c" 2
-# 1 "./lcd_hd_44780.h" 1
-# 34 "./lcd_hd_44780.h"
+# 1 "main.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4514,14 +4520,15 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 34 "./lcd_hd_44780.h" 2
+# 9 "main.c" 2
 
 # 1 "./config.h" 1
 # 12 "./config.h"
 #pragma config MCLRE = ON, WDT = OFF, OSC = HS
-# 35 "./lcd_hd_44780.h" 2
+# 10 "main.c" 2
 
-
+# 1 "./lcd_hd_44780.h" 1
+# 37 "./lcd_hd_44780.h"
 typedef struct {
     char RS:1;
     char R_W:1;
@@ -4529,9 +4536,7 @@ typedef struct {
     char NA:1;
     char data:4;
 }t_display_port;
-# 54 "./lcd_hd_44780.h"
-void init_lcd(t_display_port *lcd, unsigned char *port);
-
+# 57 "./lcd_hd_44780.h"
 void function_set(t_display_port *lcd, char data_lenght,
         char num_lines, char char_font);
 
@@ -4546,164 +4551,35 @@ void goto_XY(t_display_port *lcd,
 
 void write_char(t_display_port *lcd,
         char c);
-# 1 "lcd_hd_44780.c" 2
+# 11 "main.c" 2
 
 
+t_display_port *lcd;
 
-void init_lcd(t_display_port *lcd, unsigned char *port){
-    unsigned char *aux = port;
-    unsigned char *aux2 = lcd;
+void main(void) {
+    ADCON1 = 0x0F;
+    TRISD = 0x0;
 
+    lcd = &PORTD;
 
-    lcd = *port;
-}
+    function_set(lcd, 0, 0, 0);
+    display_onoff_control(lcd, 1, 1, 0);
+    entry_mode_set(lcd, 1,0);
 
+    write_char(lcd, 'H');
+    write_char(lcd, 'E');
+    write_char(lcd, 'L');
+    write_char(lcd, 'L');
+    write_char(lcd, 'O');
+    write_char(lcd, ' ');
+    write_char(lcd, 'W');
+    write_char(lcd, 'O');
+    write_char(lcd, 'R');
+    write_char(lcd, 'L');
+    write_char(lcd, 'D');
 
-void function_set(t_display_port *lcd, char data_lenght,
-        char num_lines, char char_font){
-    lcd->E = 0;
-    lcd->RS = 0;
-    lcd->R_W = 0;
+    while(1){
 
+    }
 
-    lcd->data = 0x02;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-
-    lcd->data = 0x02|data_lenght;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-    lcd->data = 0x00;
-
-
-
-
-    lcd->data = lcd->data|(num_lines<<3)|(char_font<<2);
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-    lcd->data = 0x00;
-}
-
-void display_onoff_control(t_display_port *lcd, char display_on,
-        char cursor_on, char blink){
-    lcd->E = 0;
-    lcd->RS = 0;
-    lcd->R_W = 0;
-
-    lcd->data = 0x00;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-
-
-    lcd->data = (0x08)|(display_on<<2)|(cursor_on<<1)|(blink);
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-    lcd->data = 0x00;
-}
-
-
-void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift){
-    lcd->E = 0;
-    lcd->RS = 0;
-    lcd->R_W = 0;
-
-    lcd->data = 0x00;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-    lcd->data = 0x04|(move_direction<<1)|display_shift;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    lcd->data = 0x00;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-
-}
-
-void goto_XY(t_display_port *lcd, char x, char y){
-
-}
-
-void write_char(t_display_port *lcd, char c){
-    lcd->E = 0;
-    lcd->RS = 1;
-    lcd->R_W = 0;
-
-
-    lcd->data = (c>>4);
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-    lcd->data = (c);
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 1;
-    _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-    lcd->E = 0;
-    lcd->RS = 0;
-    lcd->data = 0x00;
-    _delay((unsigned long)((5)*(16000000/4000.0)));
 }

@@ -4529,9 +4529,7 @@ typedef struct {
     char NA:1;
     char data:4;
 }t_display_port;
-# 54 "./lcd_hd_44780.h"
-void init_lcd(t_display_port *lcd, unsigned char *port);
-
+# 57 "./lcd_hd_44780.h"
 void function_set(t_display_port *lcd, char data_lenght,
         char num_lines, char char_font);
 
@@ -4550,13 +4548,6 @@ void write_char(t_display_port *lcd,
 
 
 
-void init_lcd(t_display_port *lcd, unsigned char *port){
-    unsigned char *aux = port;
-    unsigned char *aux2 = lcd;
-
-
-    lcd = *port;
-}
 
 
 void function_set(t_display_port *lcd, char data_lenght,

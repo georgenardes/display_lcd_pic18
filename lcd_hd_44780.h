@@ -43,16 +43,17 @@ typedef struct {
 }t_display_port;
 
 
+
+
 /**      
     
-    @Description: Atribui a struct o endereco da porta 
+    @Description:  define a largura de dados, qtd de linhas e fonte
       
-    @Parameters: Um ponteiro do tipo t_display_port e a porta que sera usada
-
+    @Parameters: ponteiro do tipo t_display_port, 
+                data_lenght: 1 para 8bit; 0 para 4bit 
+                num_lines: 1 para 2 linha; 0 para 1 linha
     @Returns: Void      
  */
-void init_lcd(t_display_port *lcd, unsigned char *port);
-
 void function_set(t_display_port *lcd, char data_lenght, 
         char num_lines, char char_font);
 

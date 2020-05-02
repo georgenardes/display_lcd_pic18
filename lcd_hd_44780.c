@@ -1,11 +1,8 @@
 #include "lcd_hd_44780.h"
 
 
-void init_lcd(t_display_port *lcd, unsigned char *port){
-    lcd = port;                
-}
 
-/* define a largura de dados, qtd de linhas e fonte*/
+
 void function_set(t_display_port *lcd, char data_lenght, 
         char num_lines, char char_font){        
     lcd->E = 0;
@@ -116,6 +113,7 @@ void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift
     lcd->E = 0;                     
     lcd->data = 0x00;
     __delay_ms(5);
+    
 }
 
 void goto_XY(t_display_port *lcd, char x, char y){
