@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 main.c
-[; ;main.c: 16: void entry_mode_set(char move_direction, char display_shift);
-[s S281 :1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 :4 `uc 1 ]
+"37 ./lcd_hd_44780.h
+[; ;./lcd_hd_44780.h: 37: typedef struct {
+[s S281 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S281 . RS R_W E NA data ]
 [p mainexit ]
 "4690 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
@@ -10,28 +10,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2143
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h: 2143: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"26 main.c
-[; ;main.c: 26:     init_lcd();
-[v _init_lcd `(v ~T0 @X0 0 e? ]
-"27
-[; ;main.c: 27: 
-[v _function_set `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"28
-[; ;main.c: 28:     function_set(0, 0, 0);
-[v _display_onoff_control `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"29
-[; ;main.c: 29:     display_onoff_control(1, 1, 0);
-[v _entry_mode_set `(v ~T0 @X0 0 ef2`uc`uc ]
-"31
-[; ;main.c: 31: 
-[v _write_char `(v ~T0 @X0 0 ef1`uc ]
-[v F2518 `(v ~T0 @X0 1 tf1`ul ]
-"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF2518 ~T0 @X0 0 e ]
-[p i __delay ]
+"54 ./lcd_hd_44780.h
+[; ;./lcd_hd_44780.h: 54: void init_lcd(t_display_port *lcd, unsigned char *port);
+[v _init_lcd `(v ~T0 @X0 0 ef2`*S281`*uc ]
 "632 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h: 632: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"56 ./lcd_hd_44780.h
+[; ;./lcd_hd_44780.h: 56: void function_set(t_display_port *lcd, char data_lenght,
+[v _function_set `(v ~T0 @X0 0 ef4`*S281`uc`uc`uc ]
+"59
+[; ;./lcd_hd_44780.h: 59: void display_onoff_control(t_display_port *lcd, char display_on,
+[v _display_onoff_control `(v ~T0 @X0 0 ef4`*S281`uc`uc`uc ]
+"62
+[; ;./lcd_hd_44780.h: 62: void entry_mode_set(t_display_port *lcd,char move_direction,
+[v _entry_mode_set `(v ~T0 @X0 0 ef3`*S281`uc`uc ]
+"68
+[; ;./lcd_hd_44780.h: 68: void write_char(t_display_port *lcd,
+[v _write_char `(v ~T0 @X0 0 ef2`*S281`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -446,342 +442,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7001
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h: 7001: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 main.c
-[; ;main.c: 11: t_display_port *lcd;
+"12 ./config.h
 [p x MCLRE = ON  WDT = OFF  OSC = HS ]
-"24
-[; ;main.c: 24:     TRISD = 0x0;
+"13 main.c
+[; ;main.c: 13: t_display_port *lcd;
 [v _lcd `*S281 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34
-[; ;main.c: 34:     write_char('L');
+"15
+[; ;main.c: 15: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"35
-[; ;main.c: 35:     write_char('L');
+"16
+[; ;main.c: 16:     ADCON1 = 0x0F;
 [e = _ADCON1 -> -> 15 `i `uc ]
-"37
-[; ;main.c: 37: 
+"17
+[; ;main.c: 17:     TRISD = 0x0;
 [e = _TRISD -> -> 0 `i `uc ]
-"39
-[; ;main.c: 39:     write_char('O');
-[e ( _init_lcd ..  ]
-"41
-[; ;main.c: 41:     write_char('L');
-[e ( _function_set (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-"42
-[; ;main.c: 42:     write_char('D');
-[e ( _display_onoff_control (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43: 
-[e ( _entry_mode_set (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"45
-[; ;main.c: 45:     while(1){
-[e ( _write_char (1 -> -> 72 `ui `uc ]
-"46
-[; ;main.c: 46: 
-[e ( _write_char (1 -> -> 69 `ui `uc ]
-"47
-[; ;main.c: 47:     }
-[e ( _write_char (1 -> -> 76 `ui `uc ]
-"48
-[; ;main.c: 48: 
-[e ( _write_char (1 -> -> 76 `ui `uc ]
-"49
-[; ;main.c: 49: }
-[e ( _write_char (1 -> -> 79 `ui `uc ]
-"51
-[; ;main.c: 51: 
-[e ( _write_char (1 -> -> 87 `ui `uc ]
-"52
-[; ;main.c: 52: void function_set(char data_lenght, char num_lines, char char_font){
-[e ( _write_char (1 -> -> 79 `ui `uc ]
-"53
-[; ;main.c: 53:     lcd->E = 0;
-[e ( _write_char (1 -> -> 82 `ui `uc ]
-"54
-[; ;main.c: 54:     lcd->RS = 0;
-[e ( _write_char (1 -> -> 76 `ui `uc ]
-"55
-[; ;main.c: 55:     lcd->R_W = 0;
-[e ( _write_char (1 -> -> 68 `ui `uc ]
-"58
-[; ;main.c: 58:     lcd->data = 0x02;
+"19
+[; ;main.c: 19:     init_lcd(lcd, &PORTD);
+[e ( _init_lcd (2 , _lcd -> &U _PORTD `*uc ]
+"21
+[; ;main.c: 21:     function_set(lcd, 0, 0, 0);
+[e ( _function_set (4 , , , _lcd -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+"22
+[; ;main.c: 22:     display_onoff_control(lcd, 1, 1, 0);
+[e ( _display_onoff_control (4 , , , _lcd -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
+"23
+[; ;main.c: 23:     entry_mode_set(lcd, 1,0);
+[e ( _entry_mode_set (3 , , _lcd -> -> 1 `i `uc -> -> 0 `i `uc ]
+"25
+[; ;main.c: 25:     write_char(lcd, 'H');
+[e ( _write_char (2 , _lcd -> -> 72 `ui `uc ]
+"26
+[; ;main.c: 26:     write_char(lcd, 'E');
+[e ( _write_char (2 , _lcd -> -> 69 `ui `uc ]
+"27
+[; ;main.c: 27:     write_char(lcd, 'L');
+[e ( _write_char (2 , _lcd -> -> 76 `ui `uc ]
+"28
+[; ;main.c: 28:     write_char(lcd, 'L');
+[e ( _write_char (2 , _lcd -> -> 76 `ui `uc ]
+"29
+[; ;main.c: 29:     write_char(lcd, 'O');
+[e ( _write_char (2 , _lcd -> -> 79 `ui `uc ]
+"30
+[; ;main.c: 30:     write_char(lcd, ' ');
+[e ( _write_char (2 , _lcd -> -> 32 `ui `uc ]
+"31
+[; ;main.c: 31:     write_char(lcd, 'W');
+[e ( _write_char (2 , _lcd -> -> 87 `ui `uc ]
+"32
+[; ;main.c: 32:     write_char(lcd, 'O');
+[e ( _write_char (2 , _lcd -> -> 79 `ui `uc ]
+"33
+[; ;main.c: 33:     write_char(lcd, 'R');
+[e ( _write_char (2 , _lcd -> -> 82 `ui `uc ]
+"34
+[; ;main.c: 34:     write_char(lcd, 'L');
+[e ( _write_char (2 , _lcd -> -> 76 `ui `uc ]
+"35
+[; ;main.c: 35:     write_char(lcd, 'D');
+[e ( _write_char (2 , _lcd -> -> 68 `ui `uc ]
+"37
+[; ;main.c: 37:     while(1){
 [e :U 284 ]
 {
-"60
-[; ;main.c: 60: 
+"39
+[; ;main.c: 39:     }
 }
 [e :U 283 ]
 [e $U 284  ]
 [e :U 285 ]
-"62
-[; ;main.c: 62:     _delay((unsigned long)((1)*(16000000/4000.0)));
+"41
+[; ;main.c: 41: }
 [e :UE 282 ]
-}
-"65
-[; ;main.c: 65:     lcd->E = 1;
-[v _function_set `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-{
-[e :U _function_set ]
-[v _data_lenght `uc ~T0 @X0 1 r1 ]
-[v _num_lines `uc ~T0 @X0 1 r2 ]
-[v _char_font `uc ~T0 @X0 1 r3 ]
-[f ]
-"66
-[; ;main.c: 66:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"67
-[; ;main.c: 67: 
-[e = . *U _lcd 0 -> -> 0 `i `uc ]
-"68
-[; ;main.c: 68: 
-[e = . *U _lcd 1 -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e = . *U _lcd 4 -> -> 2 `i `uc ]
-"74
-[; ;main.c: 74: 
-[e = . *U _lcd 4 -> | -> . *U _lcd 4 `i -> _data_lenght `i `uc ]
-"75
-[; ;main.c: 75: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"78
-[; ;main.c: 78: 
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"79
-[; ;main.c: 79: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"82
-[; ;main.c: 82: 
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"83
-[; ;main.c: 83: 
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"84
-[; ;main.c: 84:     lcd->E = 0;
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"89
-[; ;main.c: 89: 
-[e = . *U _lcd 4 -> | | -> . *U _lcd 4 `i << -> _num_lines `i -> 3 `i << -> _char_font `i -> 2 `i `uc ]
-"90
-[; ;main.c: 90: void display_onoff_control(char display_on, char cursor_on, char blink){
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"93
-[; ;main.c: 93:     lcd->R_W = 0;
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"94
-[; ;main.c: 94: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"97
-[; ;main.c: 97: 
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"98
-[; ;main.c: 98: 
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:     lcd->E = 1;
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"100
-[; ;main.c: 100:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e :UE 286 ]
-}
-"103
-[; ;main.c: 103:     lcd->E = 0;
-[v _display_onoff_control `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-{
-[e :U _display_onoff_control ]
-[v _display_on `uc ~T0 @X0 1 r1 ]
-[v _cursor_on `uc ~T0 @X0 1 r2 ]
-[v _blink `uc ~T0 @X0 1 r3 ]
-[f ]
-"104
-[; ;main.c: 104:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105: 
-[e = . *U _lcd 0 -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106: 
-[e = . *U _lcd 1 -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108: 
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     lcd->data = (0x08)|(display_on<<2)|(cursor_on<<1)|(blink);
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"112
-[; ;main.c: 112: 
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"113
-[; ;main.c: 113:     lcd->E = 1;
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"116
-[; ;main.c: 116: 
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"117
-[; ;main.c: 117:     lcd->E = 0;
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"122
-[; ;main.c: 122: 
-[e = . *U _lcd 4 -> | | | -> 8 `i << -> _display_on `i -> 2 `i << -> _cursor_on `i -> 1 `i -> _blink `i `uc ]
-"123
-[; ;main.c: 123: void entry_mode_set(char move_direction, char display_shift){
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"126
-[; ;main.c: 126:     lcd->R_W = 0;
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"127
-[; ;main.c: 127: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"130
-[; ;main.c: 130: 
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"131
-[; ;main.c: 131: 
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"132
-[; ;main.c: 132:     lcd->E = 1;
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"133
-[; ;main.c: 133:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e :UE 287 ]
-}
-"136
-[; ;main.c: 136:     lcd->E = 0;
-[v _entry_mode_set `(v ~T0 @X0 1 ef2`uc`uc ]
-{
-[e :U _entry_mode_set ]
-[v _move_direction `uc ~T0 @X0 1 r1 ]
-[v _display_shift `uc ~T0 @X0 1 r2 ]
-[f ]
-"137
-[; ;main.c: 137:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138: 
-[e = . *U _lcd 0 -> -> 0 `i `uc ]
-"139
-[; ;main.c: 139: 
-[e = . *U _lcd 1 -> -> 0 `i `uc ]
-"141
-[; ;main.c: 141:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"142
-[; ;main.c: 142: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"145
-[; ;main.c: 145:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"146
-[; ;main.c: 146: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"149
-[; ;main.c: 149:     lcd->data = 0x00;
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"150
-[; ;main.c: 150:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"153
-[; ;main.c: 153: 
-[e = . *U _lcd 4 -> | | -> . *U _lcd 4 `i << -> _move_direction `i -> 1 `i -> _display_shift `i `uc ]
-"154
-[; ;main.c: 154: void init_lcd(){
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"157
-[; ;main.c: 157: 
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"158
-[; ;main.c: 158: void goto_XY(char x, char y){
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"161
-[; ;main.c: 161: 
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"162
-[; ;main.c: 162: void write_char(char c){
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"163
-[; ;main.c: 163:     lcd->E = 0;
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"164
-[; ;main.c: 164:     lcd->RS = 1;
-[e :UE 288 ]
-}
-"167
-[; ;main.c: 167: 
-[v _init_lcd `(v ~T0 @X0 1 ef ]
-{
-[e :U _init_lcd ]
-[f ]
-"168
-[; ;main.c: 168:     lcd->data = (c>>4);
-[e = _lcd -> &U _PORTD `*S281 ]
-"169
-[; ;main.c: 169:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e :UE 289 ]
-}
-"171
-[; ;main.c: 171: 
-[v _goto_XY `(v ~T0 @X0 1 ef2`uc`uc ]
-{
-[e :U _goto_XY ]
-[v _x `uc ~T0 @X0 1 r1 ]
-[v _y `uc ~T0 @X0 1 r2 ]
-[f ]
-"173
-[; ;main.c: 173:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e :UE 290 ]
-}
-"175
-[; ;main.c: 175: 
-[v _write_char `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _write_char ]
-[v _c `uc ~T0 @X0 1 r1 ]
-[f ]
-"176
-[; ;main.c: 176:     lcd->E = 0;
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"177
-[; ;main.c: 177:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e = . *U _lcd 0 -> -> 1 `i `uc ]
-"178
-[; ;main.c: 178: 
-[e = . *U _lcd 1 -> -> 0 `i `uc ]
-"181
-[; ;main.c: 181:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e = . *U _lcd 4 -> >> -> _c `i -> 4 `i `uc ]
-"182
-[; ;main.c: 182: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"185
-[; ;main.c: 185:     _delay((unsigned long)((1)*(16000000/4000.0)));
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"186
-[; ;main.c: 186: 
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"189
-[; ;main.c: 189:     lcd->data = 0x00;
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"190
-[; ;main.c: 190:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"193
-[e = . *U _lcd 4 -> & -> _c `i -> 15 `i `uc ]
-"194
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"197
-[e = . *U _lcd 2 -> -> 1 `i `uc ]
-"198
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"201
-[e = . *U _lcd 2 -> -> 0 `i `uc ]
-"202
-[e = . *U _lcd 4 -> -> 0 `i `uc ]
-"203
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"204
-[e :UE 291 ]
 }

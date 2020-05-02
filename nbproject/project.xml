@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>lcd</name>
+            <name>display_lcd_pic18</name>
             <creation-uuid>8f630c51-cf97-4e40-bff8-536a6de1bdc1</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

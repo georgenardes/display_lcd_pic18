@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "lcd_hd_44780.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 1 "lcd_hd_44780.c" 2
+# 1 "./lcd_hd_44780.h" 1
+# 34 "./lcd_hd_44780.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4520,12 +4514,12 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 34 "./lcd_hd_44780.h" 2
 
-
+# 1 "./config.h" 1
+# 12 "./config.h"
 #pragma config MCLRE = ON, WDT = OFF, OSC = HS
-
-
+# 35 "./lcd_hd_44780.h" 2
 
 
 typedef struct {
@@ -4535,48 +4529,34 @@ typedef struct {
     char NA:1;
     char data:4;
 }t_display_port;
+# 54 "./lcd_hd_44780.h"
+void init_lcd(t_display_port *lcd, unsigned char *port);
 
-t_display_port *lcd;
+void function_set(t_display_port *lcd, char data_lenght,
+        char num_lines, char char_font);
 
-void init_lcd();
-void function_set(char data_lenght, char num_lines, char char_font);
-void display_onoff_control(char display_on, char cursor_on, char blink);
-void entry_mode_set(char move_direction, char display_shift);
-void goto_XY(char x, char y);
-void write_char(char c);
+void display_onoff_control(t_display_port *lcd, char display_on,
+        char cursor_on, char blink);
 
+void entry_mode_set(t_display_port *lcd,char move_direction,
+        char display_shift);
 
-void main(void) {
-    ADCON1 = 0x0F;
-    TRISD = 0x0;
+void goto_XY(t_display_port *lcd,
+        char x, char y);
 
-    init_lcd();
-
-    function_set(0, 0, 0);
-    display_onoff_control(1, 1, 0);
-    entry_mode_set(1,0);
-
-    write_char('H');
-    write_char('E');
-    write_char('L');
-    write_char('L');
-    write_char('O');
-    write_char(' ');
-    write_char('W');
-    write_char('O');
-    write_char('R');
-    write_char('L');
-    write_char('D');
+void write_char(t_display_port *lcd,
+        char c);
+# 1 "lcd_hd_44780.c" 2
 
 
-    while(1){
 
-    }
-
+void init_lcd(t_display_port *lcd, unsigned char *port){
+    lcd = port;
 }
 
 
-void function_set(char data_lenght, char num_lines, char char_font){
+void function_set(t_display_port *lcd, char data_lenght,
+        char num_lines, char char_font){
     lcd->E = 0;
     lcd->RS = 0;
     lcd->R_W = 0;
@@ -4623,8 +4603,8 @@ void function_set(char data_lenght, char num_lines, char char_font){
     lcd->data = 0x00;
 }
 
-
-void display_onoff_control(char display_on, char cursor_on, char blink){
+void display_onoff_control(t_display_port *lcd, char display_on,
+        char cursor_on, char blink){
     lcd->E = 0;
     lcd->RS = 0;
     lcd->R_W = 0;
@@ -4657,7 +4637,7 @@ void display_onoff_control(char display_on, char cursor_on, char blink){
 }
 
 
-void entry_mode_set(char move_direction, char display_shift){
+void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift){
     lcd->E = 0;
     lcd->RS = 0;
     lcd->R_W = 0;
@@ -4687,16 +4667,11 @@ void entry_mode_set(char move_direction, char display_shift){
     _delay((unsigned long)((5)*(16000000/4000.0)));
 }
 
-
-void init_lcd(){
-    lcd = &PORTD;
-}
-
-void goto_XY(char x, char y){
+void goto_XY(t_display_port *lcd, char x, char y){
 
 }
 
-void write_char(char c){
+void write_char(t_display_port *lcd, char c){
     lcd->E = 0;
     lcd->RS = 1;
     lcd->R_W = 0;

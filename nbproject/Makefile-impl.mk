@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=lcd.X
+PROJECTNAME=diplay_lcd_pic18
 
 # Active Configuration
 DEFAULTCONF=default
