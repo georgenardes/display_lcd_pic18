@@ -1,7 +1,7 @@
 #include "lcd_hd_44780.h"
 
 
-
+t_display_port *lcd;
 
 void function_set(t_display_port *lcd, char data_lenght, 
         char num_lines, char char_font){        
@@ -84,6 +84,42 @@ void display_onoff_control(t_display_port *lcd, char display_on,
     lcd->data = 0x00;        
 }
 
+void lcd_cmd(t_display_port *lcd, char a){
+    lcd->RS = 0;
+    lcd->data = (a);
+    __delay_ms(1);
+    
+    /* habilita display */
+    lcd->E = 1;
+    __delay_ms(1);
+    
+    /* limpa saidas */
+    lcd->E = 0;                         
+    __delay_ms(5);
+}
+
+void goto_XY(t_display_port *lcd, char x, char y){
+    char temp,z,a;
+    if(x == 1)
+    {
+       temp = 0x80 + y - 1;
+       z = temp>>4;
+       a = temp;
+       lcd_cmd(lcd, z);
+       __delay_ms(1);
+       lcd_cmd(lcd, a);
+    }
+    else if(x == 2)
+    {
+       temp = 0xC0 + y - 1;
+       z = temp>>4;
+       a = temp;
+       lcd_cmd(lcd, z);
+       __delay_ms(1);
+       lcd_cmd(lcd, a);
+    } 
+}
+
 
 void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift){
     lcd->E = 0;
@@ -113,10 +149,6 @@ void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift
     lcd->E = 0;                     
     lcd->data = 0x00;
     __delay_ms(5);
-    
-}
-
-void goto_XY(t_display_port *lcd, char x, char y){
     
 }
 

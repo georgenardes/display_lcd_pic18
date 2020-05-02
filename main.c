@@ -18,9 +18,10 @@ void main(void) {
         
     lcd = &PORTD;
             
-    function_set(lcd, 0, 0, 0);
+    function_set(lcd, 0, 1, 0);
     display_onoff_control(lcd, 1, 1, 0);
     entry_mode_set(lcd, 1,0);
+    goto_XY(lcd, 1, 1);
         
     write_char(lcd, 'H');
     write_char(lcd, 'E');
@@ -33,6 +34,15 @@ void main(void) {
     write_char(lcd, 'R');
     write_char(lcd, 'L');
     write_char(lcd, 'D');
+    
+    goto_XY(lcd, 2, 4);
+    write_char(lcd, 'A');
+    write_char(lcd, 'E');
+    write_char(lcd, ' ');
+    write_char(lcd, 'F');
+    write_char(lcd, 'D');
+    write_char(lcd, 'P');
+
         
     while(1){
         

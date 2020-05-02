@@ -27,15 +27,19 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"6 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\lcd_hd_44780.c
+"6 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
 [v _function_set function_set `(v  1 e 1 0 ]
 "54
 [v _display_onoff_control display_onoff_control `(v  1 e 1 0 ]
-"88
+"87
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+"101
+[v _goto_XY goto_XY `(v  1 e 1 0 ]
+"124
 [v _entry_mode_set entry_mode_set `(v  1 e 1 0 ]
-"123
+"155
 [v _write_char write_char `(v  1 e 1 0 ]
-"15 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
+"15 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\main.c
 [v _main main `(v  1 e 1 0 ]
 "632 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
@@ -49,14 +53,14 @@
 `uc 1 NA 1 0 :1:3 
 `uc 1 data 1 0 :4:4 
 ]
-"13 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
+"4 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
 [v _lcd lcd `*.39S24  1 e 2 0 ]
-"15
+"15 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"41
+"51
 } 0
-"123 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\lcd_hd_44780.c
+"155 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
 [v _write_char write_char `(v  1 e 1 0 ]
 {
 [s S24 . 1 `uc 1 RS 1 0 :1:0 
@@ -67,7 +71,39 @@
 ]
 [v write_char@lcd lcd `*.39S24  1 p 2 0 ]
 [v write_char@c c `uc  1 p 1 2 ]
-"153
+"185
+} 0
+"101
+[v _goto_XY goto_XY `(v  1 e 1 0 ]
+{
+"102
+[v goto_XY@temp temp `uc  1 a 1 11 ]
+[v goto_XY@a a `uc  1 a 1 10 ]
+[v goto_XY@z z `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+"101
+[v goto_XY@lcd lcd `*.39S24  1 p 2 4 ]
+[v goto_XY@x x `uc  1 p 1 6 ]
+[v goto_XY@y y `uc  1 p 1 7 ]
+"121
+} 0
+"87
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v lcd_cmd@lcd lcd `*.39S24  1 p 2 0 ]
+[v lcd_cmd@a a `uc  1 p 1 2 ]
+"99
 } 0
 "6
 [v _function_set function_set `(v  1 e 1 0 ]
@@ -85,7 +121,7 @@
 [v function_set@char_font char_font `uc  1 p 1 4 ]
 "52
 } 0
-"88
+"124
 [v _entry_mode_set entry_mode_set `(v  1 e 1 0 ]
 {
 [s S24 . 1 `uc 1 RS 1 0 :1:0 
@@ -97,7 +133,7 @@
 [v entry_mode_set@lcd lcd `*.39S24  1 p 2 0 ]
 [v entry_mode_set@move_direction move_direction `uc  1 p 1 2 ]
 [v entry_mode_set@display_shift display_shift `uc  1 p 1 3 ]
-"117
+"153
 } 0
 "54
 [v _display_onoff_control display_onoff_control `(v  1 e 1 0 ]

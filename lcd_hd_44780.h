@@ -66,6 +66,8 @@ void entry_mode_set(t_display_port *lcd,char move_direction,
 void goto_XY(t_display_port *lcd,
         char x, char y);
 
+void lcd_cmd(t_display_port *lcd, char c);
+
 void write_char(t_display_port *lcd,
         char c);
 
