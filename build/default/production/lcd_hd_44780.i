@@ -4553,7 +4553,7 @@ void write_char(t_display_port *lcd, char c);
 
 
 
-void clear_diplay(t_display_port *lcd);
+void clear_display(t_display_port *lcd);
 # 133 "./lcd_hd_44780.h"
 void return_home(t_display_port *lcd);
 # 10 "lcd_hd_44780.c" 2

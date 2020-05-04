@@ -23,6 +23,8 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
@@ -41,7 +43,9 @@
 [v _entry_mode_set entry_mode_set `(v  1 e 1 0 ]
 "118
 [v _write_char write_char `(v  1 e 1 0 ]
-"18 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
+"137
+[v _clear_display clear_display `(v  1 e 1 0 ]
+"19 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
 [v _main main `(v  1 e 1 0 ]
 "632 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
@@ -55,12 +59,28 @@
 `uc 1 NA 1 0 :1:3 
 `uc 1 data 1 0 :4:4 
 ]
-"16 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
+"17 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\main.c
 [v _lcd lcd `*.39S24  1 e 2 0 ]
-"18
+"19
 [v _main main `(v  1 e 1 0 ]
 {
-"67
+"44
+[v main@i_98 i `i  1 a 2 55 ]
+"39
+[v main@i i `i  1 a 2 53 ]
+"33
+[v main@palavra2 palavra2 `[16]uc  1 a 16 33 ]
+"30
+[v main@palavra palavra `[16]uc  1 a 16 17 ]
+"34
+[v main@tamanho2 tamanho2 `i  1 a 2 51 ]
+"31
+[v main@tamanho tamanho `i  1 a 2 49 ]
+"28
+[v main@F3048 F3048 `[16]uc  1 s 16 F3048 ]
+"31
+[v main@F3051 F3051 `[16]uc  1 s 16 F3051 ]
+"55
 } 0
 "118 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\lcd_hd_44780.c
 [v _write_char write_char `(v  1 e 1 0 ]
@@ -75,7 +95,16 @@
 [v write_char@c c `uc  1 p 1 5 ]
 "135
 } 0
-"78
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v strlen@a a `*.39Cuc  1 a 2 2 ]
+"5
+[v strlen@s s `*.39Cuc  1 p 2 0 ]
+"12
+} 0
+"78 C:\Users\George\Desktop\George\microcontroladores\diplay_lcd_pic18\lcd_hd_44780.c
 [v _goto_XY goto_XY `(v  1 e 1 0 ]
 {
 "79
@@ -152,6 +181,18 @@
 [v display_onoff_control@cursor_on cursor_on `uc  1 p 1 6 ]
 [v display_onoff_control@blink blink `uc  1 p 1 7 ]
 "67
+} 0
+"137
+[v _clear_display clear_display `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v clear_display@lcd lcd `*.39S24  1 p 2 3 ]
+"153
 } 0
 "12
 [v _pulso pulso `(v  1 e 1 0 ]
