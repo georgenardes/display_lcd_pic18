@@ -1,7 +1,7 @@
 /* 
  * File:   lcd_hd_44780.c
  * Author: 
- * Diogo Marchi Agenor
+ * Diogo Agenor Marchi 
  * George de Borba Nardes
  *          
  *  
@@ -105,22 +105,23 @@ void lcd_cmd(t_display_port *lcd, char a){
     lcd->data = 0x0;
 }
 
+//função para posicionar o cursor
 void goto_XY(t_display_port *lcd, unsigned char x, unsigned char y){
     unsigned char temp,z,a;
-    if(x == 1)
+    if(x == 1)              //verifica se é primeira linha
     {
-       temp = 0x80 + y - 1;
-       z = temp>>4;
-       a = temp;
+       temp = 0x80 + y - 1; //posição inicial da primeira linha mais coluna, menos 1
+       z = temp>>4;         //pegando bits mais significativos
+       a = temp;            //pegando bit menos significativos
        lcd_cmd(lcd, z);
        __delay_ms(1);
        lcd_cmd(lcd, a);
     }
-    else if(x == 2)
+    else if(x == 2)         //verifica se é segunda linha
     {
-       temp = 0xC0 + y - 1;
-       z = temp>>4;
-       a = temp;
+       temp = 0xC0 + y - 1; //posição inicial da segunda linha mais coluna, menos 1
+       z = temp>>4;         //pegando bits mais significativos
+       a = temp;            ////pegando bit menos significativos
        lcd_cmd(lcd, z);
        __delay_ms(1);
        lcd_cmd(lcd, a);
