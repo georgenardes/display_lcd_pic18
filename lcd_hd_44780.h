@@ -20,10 +20,12 @@
  */
 
 /* 
- * File:   
- * Author: George de Borba Nardes
- * Comments:
- * Revision history: 
+ * File:   lcd_hd_44780.h
+ * Author: 
+ * Diogo Marchi Agenor
+ * George de Borba Nardes
+ *          
+ *  
  */
 
 // This is a guard condition so that contents of this file are not included
@@ -43,8 +45,6 @@ typedef struct {
 }t_display_port;
 
 
-
-
 /**      
     
     @Description:  define a largura de dados, qtd de linhas e fonte
@@ -57,20 +57,80 @@ typedef struct {
 void function_set(t_display_port *lcd, char data_lenght, 
         char num_lines, char char_font);
 
+/**      
+    
+    @Description:  Habilita display e o cursor. Também define se o caracter
+ indicado pelo cursor irá piscar
+ 
+    @Parameters: ponteiro do tipo t_display_port, 
+                diplay_on: 1 habilita; 0 desabilita
+                cusor_on: 1 habilita; 0 desabilita
+                blink: 1 habilita; 0 desabilita
+    @Returns: Void      
+ */
 void display_onoff_control(t_display_port *lcd, char display_on,
         char cursor_on, char blink);
 
+/**      
+    
+    @Description:  define se o endereco DDRAM será incrementado ou decrementado
+                  e se o diplay será deslocado ou não
+    @Parameters: ponteiro do tipo t_display_port, 
+                move_direction: 1 para esquerda; 0 para direita
+                display_shift: 1 habilita; 0 desabilita
+    @Returns: Void      
+ */
 void entry_mode_set(t_display_port *lcd,char move_direction, 
         char display_shift);
 
+/**      
+    
+    @Description:  
+      
+    @Parameters: ponteiro do tipo t_display_port, 
+                x
+                y: 
+    @Returns: Void      
+ */
 void goto_XY(t_display_port *lcd,
-        char x, char y);
+        unsigned char x, unsigned char y);
 
+/**      
+    
+    @Description:  
+ *       
+    @Parameters: ponteiro do tipo t_display_port, 
+                c:
+    @Returns: Void      
+ */
 void lcd_cmd(t_display_port *lcd, char c);
 
-void write_char(t_display_port *lcd,
-        char c);
+/**      
+    
+    @Description:  
+      
+    @Parameters: ponteiro do tipo t_display_port, 
+                c:
+    @Returns: Void      
+ */
+void write_char(t_display_port *lcd, char c);
 
+/**      
+    
+    @Description:  limpa o display      
+    @Parameters: ponteiro do tipo t_display_port,                 
+    @Returns: Void      
+ */
+void clear_diplay(t_display_port *lcd);
+
+
+
+/**      
+    @Description:  Retorna ao erndereço DDRAM para 0
+    @Parameters: ponteiro do tipo t_display_port,       
+    @Returns: Void      
+ */
+void return_home(t_display_port *lcd);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

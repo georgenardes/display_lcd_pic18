@@ -1,7 +1,10 @@
-/*
+/* 
  * File:   main.c
- * Author: George
- *
+ * Author: 
+ * Diogo Marchi Agenor
+ * George de Borba Nardes
+ *          
+ *   
  * Created on 1 de Maio de 2020, 08:57
  */
 

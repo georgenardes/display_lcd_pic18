@@ -1,7 +1,13 @@
+/* 
+ * File:   lcd_hd_44780.c
+ * Author: 
+ * Diogo Marchi Agenor
+ * George de Borba Nardes
+ *          
+ *  
+ */
+
 #include "lcd_hd_44780.h"
-
-
-t_display_port *lcd;
 
 void function_set(t_display_port *lcd, char data_lenght, 
         char num_lines, char char_font){        
@@ -96,10 +102,11 @@ void lcd_cmd(t_display_port *lcd, char a){
     /* limpa saidas */
     lcd->E = 0;                         
     __delay_ms(5);
+    lcd->data = 0x0;
 }
 
-void goto_XY(t_display_port *lcd, char x, char y){
-    char temp,z,a;
+void goto_XY(t_display_port *lcd, unsigned char x, unsigned char y){
+    unsigned char temp,z,a;
     if(x == 1)
     {
        temp = 0x80 + y - 1;
@@ -146,9 +153,9 @@ void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift
     __delay_ms(1);
     
     /* limpa saidas */
-    lcd->E = 0;                     
-    lcd->data = 0x00;
+    lcd->E = 0;                         
     __delay_ms(5);
+    lcd->data = 0x00;
     
 }
 
@@ -182,4 +189,66 @@ void write_char(t_display_port *lcd, char c){
     lcd->RS = 0;
     lcd->data = 0x00;
     __delay_ms(5);
+}
+
+void clear_display(t_display_port *lcd){
+    lcd->E = 0;
+    lcd->RS = 0;
+    lcd->R_W = 0;
+    
+    /* primeira parte */
+    lcd->E = 0;
+    lcd->data = 0x0;
+    __delay_ms(1);
+    
+    /* pulso no display */
+    lcd->E = 1;
+    __delay_ms(1);
+            
+    lcd->E = 0;
+    __delay_ms(1);
+    
+    /* segunda parte */
+    lcd->data = 0x1;
+    
+    /* pulso no display  */
+    lcd->E = 1;
+    __delay_ms(1);
+    
+    /* finalizando */
+    lcd->E = 0;
+    __delay_ms(1);
+    lcd->data = 0x0;
+    
+}
+
+void return_home(t_display_port *lcd){
+    lcd->E = 0;
+    lcd->RS = 0;
+    lcd->R_W = 0;
+    
+    /* primeira parte */
+    lcd->E = 0;
+    lcd->data = 0x0;
+    __delay_ms(1);
+    
+    /* pulso no display */
+    lcd->E = 1;
+    __delay_ms(1);
+            
+    lcd->E = 0;
+    __delay_ms(1);
+    
+    /* segunda parte */
+    lcd->data = 0x2;
+    
+    /* pulso no display  */
+    lcd->E = 1;
+    __delay_ms(1);
+    
+    /* finalizando */
+    lcd->E = 0;
+    __delay_ms(1);
+    lcd->data = 0x0;
+    
 }
