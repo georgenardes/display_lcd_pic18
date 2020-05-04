@@ -1,0 +1,180 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"12 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
+[v _function_set function_set `(v  1 e 1 0 ]
+"60
+[v _display_onoff_control display_onoff_control `(v  1 e 1 0 ]
+"93
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+"109
+[v _goto_XY goto_XY `(v  1 e 1 0 ]
+"132
+[v _entry_mode_set entry_mode_set `(v  1 e 1 0 ]
+"163
+[v _write_char write_char `(v  1 e 1 0 ]
+"19 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\main.c
+[v _main main `(v  1 e 1 0 ]
+"632 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"2143
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4690
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+"17 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\main.c
+[v _lcd lcd `*.39S24  1 e 2 0 ]
+"19
+[v _main main `(v  1 e 1 0 ]
+{
+"40
+[v main@i_87 i `i  1 a 2 51 ]
+"32
+[v main@i i `i  1 a 2 49 ]
+"38
+[v main@palavra2 palavra2 `[16]uc  1 a 16 29 ]
+"30
+[v main@palavra palavra `[16]uc  1 a 16 13 ]
+"39
+[v main@tamanho2 tamanho2 `i  1 a 2 47 ]
+"31
+[v main@tamanho tamanho `i  1 a 2 45 ]
+"28
+[v main@F3048 F3048 `[16]uc  1 s 16 F3048 ]
+"36
+[v main@F3052 F3052 `[16]uc  1 s 16 F3052 ]
+"48
+} 0
+"163 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
+[v _write_char write_char `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v write_char@lcd lcd `*.39S24  1 p 2 0 ]
+[v write_char@c c `uc  1 p 1 2 ]
+"193
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v strlen@a a `*.39Cuc  1 a 2 2 ]
+"5
+[v strlen@s s `*.39Cuc  1 p 2 0 ]
+"12
+} 0
+"109 C:\Users\Diogo\Documents\FACULDADE-MATERIAS\MICROCONTROLADOR\diplay_lcd_pic18\lcd_hd_44780.c
+[v _goto_XY goto_XY `(v  1 e 1 0 ]
+{
+"110
+[v goto_XY@temp temp `uc  1 a 1 11 ]
+[v goto_XY@a a `uc  1 a 1 10 ]
+[v goto_XY@z z `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+"109
+[v goto_XY@lcd lcd `*.39S24  1 p 2 4 ]
+[v goto_XY@x x `uc  1 p 1 6 ]
+[v goto_XY@y y `uc  1 p 1 7 ]
+"129
+} 0
+"93
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v lcd_cmd@lcd lcd `*.39S24  1 p 2 0 ]
+[v lcd_cmd@a a `uc  1 p 1 2 ]
+"106
+} 0
+"12
+[v _function_set function_set `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v function_set@lcd lcd `*.39S24  1 p 2 0 ]
+[v function_set@data_lenght data_lenght `uc  1 p 1 2 ]
+"13
+[v function_set@num_lines num_lines `uc  1 p 1 3 ]
+[v function_set@char_font char_font `uc  1 p 1 4 ]
+"58
+} 0
+"132
+[v _entry_mode_set entry_mode_set `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v entry_mode_set@lcd lcd `*.39S24  1 p 2 0 ]
+[v entry_mode_set@move_direction move_direction `uc  1 p 1 2 ]
+[v entry_mode_set@display_shift display_shift `uc  1 p 1 3 ]
+"161
+} 0
+"60
+[v _display_onoff_control display_onoff_control `(v  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 RS 1 0 :1:0 
+`uc 1 R_W 1 0 :1:1 
+`uc 1 E 1 0 :1:2 
+`uc 1 NA 1 0 :1:3 
+`uc 1 data 1 0 :4:4 
+]
+[v display_onoff_control@lcd lcd `*.39S24  1 p 2 0 ]
+[v display_onoff_control@display_on display_on `uc  1 p 1 2 ]
+"61
+[v display_onoff_control@cursor_on cursor_on `uc  1 p 1 3 ]
+[v display_onoff_control@blink blink `uc  1 p 1 4 ]
+"91
+} 0
