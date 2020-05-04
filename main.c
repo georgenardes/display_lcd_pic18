@@ -1,7 +1,7 @@
 /* 
  * File:   main.c
  * Author: 
- * Diogo Marchi Agenor
+ * Diogo Agenor Marchi 
  * George de Borba Nardes
  *          
  *   
@@ -26,25 +26,39 @@ void main(void) {
     entry_mode_set(lcd, 1,0);
     goto_XY(lcd, 1, 1);
         
-    write_char(lcd, 'H');
-    write_char(lcd, 'E');
-    write_char(lcd, 'L');
-    write_char(lcd, 'L');
+    write_char(lcd, 'D');
+    write_char(lcd, 'I');
+    write_char(lcd, 'O');
+    write_char(lcd, 'G');
     write_char(lcd, 'O');
     write_char(lcd, ' ');
-    write_char(lcd, 'W');
-    write_char(lcd, 'O');
+    write_char(lcd, 'M');
+    write_char(lcd, 'A');
     write_char(lcd, 'R');
-    write_char(lcd, 'L');
-    write_char(lcd, 'D');
+    write_char(lcd, 'C');
+    write_char(lcd, 'H');
+    write_char(lcd, 'I');
     
     goto_XY(lcd, 2, 4);
-    write_char(lcd, 'A');
+    write_char(lcd, 'G');
+    write_char(lcd, 'E');
+    write_char(lcd, 'O');
+    write_char(lcd, 'R');
+    write_char(lcd, 'G');
     write_char(lcd, 'E');
     write_char(lcd, ' ');
-    write_char(lcd, 'F');
     write_char(lcd, 'D');
-    write_char(lcd, 'P');
+    write_char(lcd, 'E');
+    write_char(lcd, ' ');
+    write_char(lcd, 'B');
+    write_char(lcd, 'O');
+    write_char(lcd, 'R');
+    write_char(lcd, 'B');
+    write_char(lcd, 'A');
+    
+    
+    
+    
 
         
     while(1){
