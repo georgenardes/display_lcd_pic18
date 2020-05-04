@@ -121,7 +121,7 @@ void write_char(t_display_port *lcd, char c);
     @Parameters :  ponteiro do tipo t_display_port,                 
     @Returns    :  Void      
  */
-void clear_diplay(t_display_port *lcd);
+void clear_display(t_display_port *lcd);
 
 
 

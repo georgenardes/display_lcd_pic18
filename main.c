@@ -25,44 +25,43 @@ void main(void) {
     display_onoff_control(lcd, 1, 1, 0);
     entry_mode_set(lcd, 1,0);
     goto_XY(lcd, 1, 1);
-        
-    write_char(lcd, 'D');
-    write_char(lcd, 'I');
-    write_char(lcd, 'O');
-    write_char(lcd, 'G');
-    write_char(lcd, 'O');
-    write_char(lcd, ' ');
-    write_char(lcd, 'M');
-    write_char(lcd, 'A');
-    write_char(lcd, 'R');
-    write_char(lcd, 'C');
-    write_char(lcd, 'H');
-    write_char(lcd, 'I');
-    
-    goto_XY(lcd, 2, 4);
-    write_char(lcd, 'G');
-    write_char(lcd, 'E');
-    write_char(lcd, 'O');
-    write_char(lcd, 'R');
-    write_char(lcd, 'G');
-    write_char(lcd, 'E');
-    write_char(lcd, ' ');
-    write_char(lcd, 'D');
-    write_char(lcd, 'E');
-    write_char(lcd, ' ');
-    write_char(lcd, 'B');
-    write_char(lcd, 'O');
-    write_char(lcd, 'R');
-    write_char(lcd, 'B');
-    write_char(lcd, 'A');
-    
-    
-    
-    
-
-        
+                                 
     while(1){
+        write_char(lcd, 'D');
+        write_char(lcd, 'I');
+        write_char(lcd, 'O');
+        write_char(lcd, 'G');
+        write_char(lcd, 'O');
+        write_char(lcd, ' ');
+        write_char(lcd, 'M');
+        write_char(lcd, 'A');
+        write_char(lcd, 'R');
+        write_char(lcd, 'C');
+        write_char(lcd, 'H');
+        write_char(lcd, 'I');
+
+        goto_XY(lcd, 2, 4);
+        write_char(lcd, 'G');
+        write_char(lcd, 'E');
+        write_char(lcd, 'O');
+        write_char(lcd, 'R');
+        write_char(lcd, 'G');
+        write_char(lcd, 'E');
+        write_char(lcd, ' ');
+        write_char(lcd, 'D');
+        write_char(lcd, 'E');
+        write_char(lcd, ' ');
+        write_char(lcd, 'B');
+        write_char(lcd, 'O');
+        write_char(lcd, 'R');
+        write_char(lcd, 'B');
+        write_char(lcd, 'A');
         
+        __delay_ms(1000);
+        
+        clear_display(lcd);
+        
+        __delay_ms(500);
     }
     
 }

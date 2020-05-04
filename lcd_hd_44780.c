@@ -9,7 +9,7 @@
 
 #include "lcd_hd_44780.h"
 
-void pulso(){        
+void pulso(t_display_port *lcd){        
     /* habilita display */
     lcd->E = 1;
     __delay_ms(1);
@@ -17,6 +17,7 @@ void pulso(){
     /* desabilita display */
     lcd->E = 0;                
     __delay_ms(5);
+    lcd->data = 0x00;   
 }
 
 void function_set(t_display_port *lcd, char data_lenght, 
@@ -29,23 +30,20 @@ void function_set(t_display_port *lcd, char data_lenght,
     lcd->data = 0x02;        
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* tamanho de dados */
     lcd->data = 0x02|data_lenght;    
     __delay_ms(1);
     
-    pulso();
-    lcd->data = 0x00;        
-    
+    pulso(lcd);
+             
     /* -- segunda parte -- */            
     /* numero de linhas e fonte */
     lcd->data = lcd->data|(num_lines<<3)|(char_font<<2);    
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x00;        
+    pulso(lcd);    
 }
 
 void display_onoff_control(t_display_port *lcd, char display_on, 
@@ -58,16 +56,14 @@ void display_onoff_control(t_display_port *lcd, char display_on,
     lcd->data = 0x00;
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* -- segunda parte -- */            
     /* ativa display - cursor_on - blink */
     lcd->data = (0x08)|(display_on<<2)|(cursor_on<<1)|(blink);    
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x00;        
+    pulso(lcd);              
 }
 
 void lcd_cmd(t_display_port *lcd, char a){
@@ -75,9 +71,7 @@ void lcd_cmd(t_display_port *lcd, char a){
     lcd->data = (a);
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x0;
+    pulso(lcd);        
 }
 
 //função para posicionar o cursor
@@ -112,16 +106,13 @@ void entry_mode_set(t_display_port *lcd, char move_direction, char display_shift
     lcd->data = 0x00;
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* -- segunda parte -- */ 
     lcd->data = 0x04|(move_direction<<1)|display_shift;
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x00;
-    
+    pulso(lcd);            
 }
 
 void write_char(t_display_port *lcd, char c){
@@ -133,16 +124,14 @@ void write_char(t_display_port *lcd, char c){
     lcd->data = (c>>4);
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* segunda parte do char */
     lcd->data = (c);
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->RS = 0;
-    lcd->data = 0x00;    
+    pulso(lcd);    
+    lcd->RS = 0;       
 }
 
 void clear_display(t_display_port *lcd){
@@ -154,15 +143,13 @@ void clear_display(t_display_port *lcd){
     lcd->data = 0x0;
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* segunda parte */
     lcd->data = 0x1;
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x0;
+    pulso(lcd);
 }
 
 void return_home(t_display_port *lcd){
@@ -174,14 +161,11 @@ void return_home(t_display_port *lcd){
     lcd->data = 0x0;
     __delay_ms(1);
     
-    pulso();
+    pulso(lcd);
     
     /* segunda parte */
     lcd->data = 0x2;
     __delay_ms(1);
     
-    pulso();
-    
-    lcd->data = 0x0;
-    
+    pulso(lcd);    
 }
