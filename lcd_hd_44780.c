@@ -95,6 +95,24 @@ void goto_XY(t_display_port *lcd, unsigned char x, unsigned char y){
        __delay_ms(1);
        lcd_cmd(lcd, a);
     } 
+    else if(x == 3)         //verifica se é terceira linha
+    {
+       temp = 0x90 + y - 1; //posição inicial da terceira linha mais coluna, menos 1
+       z = temp>>4;         //pegando bits mais significativos
+       a = temp;            //pegando bit menos significativos
+       lcd_cmd(lcd, z);
+       __delay_ms(1);
+       lcd_cmd(lcd, a);
+    } 
+    else if(x == 4)         //verifica se é quarta linha
+    {
+       temp = 0xD0 + y - 1; //posição inicial da quarta linha mais coluna, menos 1
+       z = temp>>4;         //pegando bits mais significativos
+       a = temp;            //pegando bit menos significativos
+       lcd_cmd(lcd, z);
+       __delay_ms(1);
+       lcd_cmd(lcd, a);
+    } 
 }
 
 
