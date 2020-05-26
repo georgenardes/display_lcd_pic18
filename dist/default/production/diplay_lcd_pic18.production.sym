@@ -266,7 +266,7 @@ idataCOMRAM 79F4 7A13 CODE 79F4 0
 %locals
 dist/default/production\diplay_lcd_pic18.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4520.h
-C:\Users\George\AppData\Local\Temp\s93o.s
+C:\Users\Diogo\AppData\Local\Temp\s3qo.s
 743 7A14 0 CODE 0
 745 7A14 0 CODE 0
 748 7A14 0 CODE 0
