@@ -51,6 +51,7 @@ typedef struct {
       
     @Parameters : ponteiro do tipo t_display_port, 
                   data_lenght: 1 para 8bit; 0 para 4bit 
+                * data_lenght de 8bit não implementado - não usar *
                   num_lines: 1 para 2 linha; 0 para 1 linha
     @Returns    : Void      
  */
